@@ -88,9 +88,10 @@ body {
   font-weight: bold;
   display: flex;
   justify-content: center;
-  align-content: left;
+  align-content: center;
   user-select: none;
   line-height: 64px; /* ADDED MYSELF */
+  transition: transform 250ms linear;
 }
 
 .tile[data-state="active"] {
@@ -114,6 +115,14 @@ body {
   animation: shake 250ms ease-in-out;
 }
 
+.tile.dance {
+  animation: dance 500ms ease-in-out;
+}
+
+.tile.flip {
+  transform: rotateX(90deg);
+}
+
 @keyframes shake {
   10% {
     transform: translateX(-5%);
@@ -130,6 +139,28 @@ body {
   }
   90% {
     transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes dance {
+  20% {
+    transform: translateY(-50%);
+  }
+
+  40% {
+    transform: translateY(5%);
+  }
+  60% {
+    transform: translateX(-25%);
+  }
+  80% {
+    transform: translateX(2.5%);
+  }
+  90% {
+    transform: translateX(-5%);
   }
   100% {
     transform: translateX(0%);
@@ -161,6 +192,6 @@ body {
   margin-bottom: 0;
 }
 
-.alert.hide{
+.alert.hide {
   opacity: 0;
 }
